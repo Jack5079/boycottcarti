@@ -14,8 +14,8 @@ fn main() {
         {
             player.next().unwrap();
         }
-        for event in player.events().unwrap() {
-            if let Event::TrackChanged(metadata) = event.unwrap() {
+        for event in player.events().unwrap().flat_map(|opt| opt) {
+            if let Event::TrackChanged(metadata) = event {
                 if metadata
                     .artists()
                     .unwrap_or_default()
