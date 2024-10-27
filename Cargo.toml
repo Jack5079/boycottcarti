@@ -1,0 +1,14 @@
+[package]
+name = "boycottcarti"
+version = "0.1.0"
+edition = "2021"
+description = "Stop Carti from playing on your computer."
+
+[dependencies]
+mpris = "2.0.1"
+
+[profile.release]
+strip = true    # Automatically strip symbols from the binary.
+opt-level = "z" # Optimize for size.
+lto = true
+panic = "abort"
